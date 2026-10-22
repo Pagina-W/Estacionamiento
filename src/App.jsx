@@ -6,6 +6,7 @@ import Inicio from './pages/Inicio.jsx'
 import Acceso from './pages/Acceso.jsx'
 import Lugar from './pages/Lugar.jsx'
 import Propietario from './pages/Propietario.jsx'
+import Cliente from './pages/Cliente' 
 
 export default function App() {
   return (
@@ -17,6 +18,8 @@ export default function App() {
         <Route path="/lugar/:id" element={<Lugar />} />
         <Route path="/propietario" element={<Propietario />} />
         <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/cliente" element={<Cliente />} />
+        
       </Routes>
       <Footer />
       <Toast />
