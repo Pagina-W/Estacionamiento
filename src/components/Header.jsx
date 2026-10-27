@@ -7,7 +7,14 @@ export default function Header() {
   return (
     <header>
       <div className="wrap">
-        <div className="logo" onClick={() => navigate('/')}>📍 Go<span>Parking</span></div>
+{/*Centrado del logo y nombre*/}
+<div className="logo" onClick={() => navigate('/')} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+  <img src="src/components/20ub.jpg" width="50" height="50" alt="UbiPark" />
+  <span style={{ transform: 'translateY(-2px)', fontWeight: 'bolder', fontSize: '25px' }}>
+    <span style={{ color: 'black' }}>Ubi</span><span style={{ color: '#0090E7' }}>Park 
+         </span> <img src="src/components/123.png" width="17" height="17"/>
+  </span>
+</div>
         <nav>
           {ses ? (
             <>
@@ -19,7 +26,7 @@ export default function Header() {
             </>
           ) : (
             <>
-              <button className="btn sm ghost" onClick={() => entrar('cliente')}>Cliente</button>
+              <button className="btn sm ghost" onClick={() => entrar('cliente')}>Soy cliente</button>
               <button className="btn sm" onClick={() => entrar('propietario')}>Rentar mi espacio</button>
             </>
           )}

@@ -1,4 +1,4 @@
-/* GoParking - estilos base (colores, tarjetas, carrusel, formularios) */
+/* UbiPark - estilos base (colores, tarjetas, carrusel, formularios) */
 :root{--ink:#10243a;--blue:#0b6bcb;--sky:#e8f2fd;--green:#12a150;--amber:#f59e0b;--bg:#f7f9fc;--line:#dde5ee;--r:16px}
 *{box-sizing:border-box;margin:0}
 body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}

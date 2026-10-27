@@ -15,44 +15,22 @@ export default function Inicio() {
 
   return (
     <div className="view on">
-      <div className="hero">
-        <div className="wrap">
-          <div>
-            <span className="pill">ESTACIONAMIENTO LOCAL Y SEGURO</span>
-            <h1>Encuentra tu lugar y reserva en minutos</h1>
-            <p>
-              Conoce el lugar, sus medidas y fotos. Habla directo con el dueño por WhatsApp y recibe tu folio con QR. Sin pagos en la plataforma.
-            </p>
-            <div style={{ marginTop: 22 }}>
-              <button className="btn ghost" onClick={() => entrar('cliente')}>
-                Ir a buscar lugares
-              </button>
-            </div>
-          </div>
-
-          <div className="roles">
-            <div className="role" onClick={() => entrar('cliente')}>
-              <div className="ic">🚗</div>
-              <div>
-                <h3>Soy Cliente</h3>
-                <p>Busca, reserva y obtén tu folio con QR.</p>
-              </div>
-            </div>
-            <div className="role" onClick={() => entrar('propietario')}>
-              <div className="ic">🏠</div>
-              <div>
-                <h3>Quiero rentar mi espacio</h3>
-                <p>Publica tu cochera y controla tus folios.</p>
-              </div>
-            </div>
-          </div>
+  <div className="hero">
+    <div className="wrap" style={{ display: 'flex', justifyContent: 'center' }}> {/*Centrado del texto principal*/}
+      <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto' }}>
+        <span className="pill">UBIPARK TU LUGAR SEGURO</span>
+        <h1>Encuentra tu lugar y reserva en minutos</h1>
+        <h3>Conoce el lugar, sus medidas y fotos. Habla directo con el dueño por WhatsApp. Sin pagos en la plataforma.</h3>
+        <div style={{ marginTop: 22 }}>
         </div>
       </div>
+    </div>
+  </div>
 
-      <section className="blk" style={{ background: '#fff' }}>
+      <section className="blk" style={{ background: '#e5e7eb' }}>
         <div className="wrap">
           <h2 className="title">¿Cómo funciona?</h2>
-          <p className="sub">Cuatro pasos, sin complicaciones.</p>
+          <p className="sub">Pasos sin complicaciones.</p>
           <div className="steps">
             <div className="step">
               <b>01</b>
@@ -67,13 +45,13 @@ export default function Inicio() {
             <div className="step">
               <b>03</b>
               <h3>Registra tu acuerdo</h3>
-              <p>Efectivo o transferencia, tú le dices a la plataforma.</p>
+              <p>Efectivo o transferencia, tú decides la plataforma.</p>
             </div>
-            <div className="step">
+           {/* <div className="step">
               <b>04</b>
               <h3>Recibe tu folio y QR</h3>
               <p>Amarillo si falta pagar, verde si ya pagaste.</p>
-            </div>
+            </div>*/}
           </div>
         </div>
       </section>

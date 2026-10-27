@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 import { DB } from '../lib/db.js'
 import { useApp } from '../context/AppContext.jsx'
-import { useSearchParams, Link, useNavigate } from 'react-router-dom' // 1. Agregamos useNavigate
+import { useSearchParams, Link } from 'react-router-dom'
 
 /* ACCESO: inicio de sesión y registro (cliente / propietario) */
 export default function Acceso() {
   const [params] = useSearchParams()
   const { login, toast } = useApp()
-  const navigate = useNavigate() // 2. Inicializamos el hook
   const role = params.get('rol') === 'propietario' ? 'propietario' : 'cliente'
   const [tab, setTab] = useState('log')
   const [f, setF] = useState({ nom: '', ape: '', tel: '', mail: '', pass: '' })
@@ -20,7 +19,6 @@ export default function Acceso() {
     const k = role === 'cliente' ? 'clientes' : 'props'
     const u = DB.get(k, [])
     const m = f.mail.trim().toLowerCase()
-
     if (tab === 'reg') {
       if (u.find((x) => x.mail === m)) return toast('Ese correo ya existe')
       if (!f.nom || !f.tel) return toast('Completa nombre y teléfono')
@@ -33,21 +31,15 @@ export default function Acceso() {
       if (!n) return toast('Correo o contraseña incorrectos')
       login(n, role)
     }
-
-    // 3. REDIRECCIÓN AUTOMÁTICA
-    if (role === 'cliente') {
-      navigate('/cliente') // Redirige a la pantalla del cliente que acabas de crear
-    } else {
-      navigate('/propietario') // Redirige a la pantalla del propietario
-    }
   }
 
   return (
+    
     <div className="view on"><div className="wrap"><div className="box narrow">
       <Link to="/" className="btn sm ghost" style={{ display: 'inline-block', marginBottom: 12 }}>
-        ← Volver al inicio
-      </Link>
-      <h2>{role === 'cliente' ? '🚗 Acceso de clientes' : '🏠 Acceso de propietarios'}</h2>
+  ← Volver al inicio
+</Link>
+      <h2>{role === 'cliente' ? 'Acceso de clientes' : 'Acceso de propietarios'}</h2>
       <div className="tabs" style={{ marginTop: 12 }}>
         <button className={'btn sm' + (tab === 'log' ? '' : ' ghost')} onClick={() => setTab('log')}>Iniciar sesión</button>
         <button className={'btn sm' + (tab === 'reg' ? '' : ' ghost')} onClick={() => setTab('reg')}>Crear cuenta</button>
@@ -70,3 +62,5 @@ export default function Acceso() {
     </div></div></div>
   )
 }
+
+
