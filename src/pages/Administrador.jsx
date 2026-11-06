@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext.jsx'
@@ -315,7 +314,6 @@ export default function Administrador() {
 
   const nombre = ses?.nombre || 'Administrador'
 
-  // Diapositivas del carrusel principal
   const slides = [
     {
       etiqueta: 'UBIPARK · ESTACIONAMIENTOS',
@@ -711,25 +709,97 @@ export default function Administrador() {
 
               {error && <p className="admin-error">{error}</p>}
 
-              <div className="admin-section-heading admin-quick-heading">
-                <div>
-                  <h3>Administración del sistema</h3>
-                  <p>Selecciona un módulo para consultar sus registros</p>
-                </div>
-              </div>
+              <section className="admin-system-panel">
+                <div className="admin-system-header">
+                  <div>
+                    <span className="admin-system-tag">CENTRO DE ADMINISTRACIÓN</span>
+                    <h3>Administración del sistema</h3>
+                    <p>Gestiona y supervisa todos los módulos de UbiPark desde un solo lugar.</p>
+                  </div>
 
-              <section className="admin-modules">
-                {secciones.slice(1).map((item) => (
-                  <button
-                    key={item.id}
-                    className="admin-module-card"
-                    onClick={() => abrirSeccion(item.id)}
-                  >
-                    <span className="admin-module-icon">{item.icono}</span>
-                    <span className="admin-module-title">{item.titulo}</span>
-                    <span className="admin-module-arrow">→</span>
-                  </button>
-                ))}
+                  <div className="admin-system-total">
+                    <span>Estado de la plataforma</span>
+                    <strong>
+                      <i className="admin-system-online"></i>
+                      Operativo
+                    </strong>
+                  </div>
+                </div>
+
+                <div className="admin-system-toolbar">
+                  <div>
+                    <h4>Módulos disponibles</h4>
+                    <span>Selecciona una opción para administrar sus registros.</span>
+                  </div>
+                  <span className="admin-system-counter">
+                    {secciones.length - 1} módulos
+                  </span>
+                </div>
+
+                <section className="admin-system-grid">
+                  {secciones.slice(1).map((item) => {
+                    const cantidades = {
+                      usuarios: estadisticas.usuarios,
+                      estacionamientos: estadisticas.estacionamientos,
+                      reservas: estadisticas.reservas,
+                      vehiculos: estadisticas.vehiculos,
+                      ubicaciones: estadisticas.localidad,
+                      resenas: estadisticas.resenas
+                    }
+
+                    const descripciones = {
+                      usuarios: 'Consulta y administra las cuentas registradas.',
+                      propietarios: 'Supervisa a los propietarios de estacionamientos.',
+                      estacionamientos: 'Gestiona los espacios de estacionamiento.',
+                      reservas: 'Consulta y supervisa las reservaciones.',
+                      vehiculos: 'Administra los vehículos registrados.',
+                      ubicaciones: 'Consulta localidades y municipios.',
+                      resenas: 'Revisa opiniones y calificaciones.',
+                      roles: 'Consulta los permisos y roles disponibles.',
+                      logs: 'Supervisa los movimientos de la plataforma.',
+                      reportes: 'Consulta los reportes generales.',
+                      configuracion: 'Administra los catálogos del sistema.'
+                    }
+
+                    const cantidad = cantidades[item.id]
+
+                    return (
+                      <button
+                        key={item.id}
+                        className={`admin-system-card admin-system-${item.id}`}
+                        onClick={() => abrirSeccion(item.id)}
+                      >
+                        <div className="admin-system-card-top">
+                          <div className="admin-system-icon">
+                            {item.icono}
+                          </div>
+                          <span className="admin-system-arrow">↗</span>
+                        </div>
+
+                        <div className="admin-system-card-info">
+                          <h4>{item.titulo}</h4>
+                          <p>{descripciones[item.id]}</p>
+                        </div>
+
+                        <div className="admin-system-card-bottom">
+                          <span>
+                            {cantidad !== undefined
+                              ? `${cargandoDashboard ? '...' : cantidad} registros`
+                              : 'Consultar módulo'}
+                          </span>
+                          <span className="admin-system-access">
+                            Acceder →
+                          </span>
+                        </div>
+                      </button>
+                    )
+                  })}
+                </section>
+
+                <div className="admin-system-footer">
+                  <span>UbiPark · Panel de control administrativo</span>
+                  <span>Gestión centralizada de la plataforma</span>
+                </div>
               </section>
             </>
           ) : seccionActiva === 'reportes' ? (
