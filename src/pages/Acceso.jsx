@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react'
 import { useApp } from '../context/AppContext.jsx'
 import { useSearchParams, Link } from 'react-router-dom'
@@ -23,7 +22,10 @@ export default function Acceso() {
   })
 
   const set = (k) => (e) =>
-    setF({ ...f, [k]: e.target.value })
+    setF((anterior) => ({
+      ...anterior,
+      [k]: e.target.value
+    }))
 
   useEffect(() => {
     document.title = 'UbiPark | Acceso'
@@ -154,7 +156,7 @@ export default function Acceso() {
                   </div>
                 </div>
 
-                <label>Teléfono / WhatsApp</label>
+                <label>Teléfono</label>
                 <input
                   type="tel"
                   required
