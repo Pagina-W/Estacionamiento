@@ -1,0 +1,18 @@
+GOPARKING (React)
+=================
+VER LA PAGINA: doble clic en index.html.
+
+EDITAR:
+  1. Abre esta carpeta en VS Code y edita los archivos de la carpeta src/
+       src/pages/       Inicio, Acceso, Lugar, Propietario
+       src/components/  Header, Footer, Toast, MapaGoogle
+       src/lib/db.js    datos (aqui se conecta tu API .NET + SQL Server)
+       css/styles.css   estilos (se editan directo, no necesitan actualizar)
+  2. Doble clic en ACTUALIZAR.bat  (la primera vez instala lo necesario; requiere Node.js)
+  3. Recarga index.html con F5.
+
+GOOGLE MAPS: abre config.js, pega tu llave en mapsKey y recarga.
+  Activa en Google Cloud: Maps JavaScript API y Geocoding API.
+
+SUBIR A INTERNET: sube index.html, config.js, la carpeta css y la carpeta js
+  (src, node_modules y los demas archivos no hacen falta en el hosting).
