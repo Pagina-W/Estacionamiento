@@ -1,11 +1,26 @@
 /* UbiPark - estilos base (colores, tarjetas, carrusel, formularios) */
-:root{--ink:#10243a;--blue:#0b6bcb;--sky:#e8f2fd;--green:#12a150;--amber:#f59e0b;--bg:#f7f9fc;--line:#dde5ee;--r:16px}
+/*Apartado de Soy cliente y rentar mi estapcio*/
+:root{--ink:#10243a;
+    --blue:#0b6bcb;
+    --sky:#e9efed;
+    --green:#12a150;
+    --amber:#f59e0b;
+    --bg:#dce6f3;
+    --line:#064285;--r:16px}
+    
 *{box-sizing:border-box;margin:0}
 body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
 h1,h2,h3{line-height:1.15}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1120px;margin:auto;padding:0 20px}
-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+
+/*Apartado de encabezado*/
+header{
+    position:sticky;
+    top:0;z-index:20;
+    background:#fff;
+    border-bottom:1px solid var(--line)}
+    
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{font-weight:800;font-size:1.3rem;cursor:pointer}.logo span{color:var(--blue)}
 nav{display:flex;gap:8px;align-items:center}
@@ -13,7 +28,13 @@ nav{display:flex;gap:8px;align-items:center}
 .btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .btn.ghost{background:var(--sky);color:var(--blue)}.btn.green{background:#25d366}.btn.dark{background:var(--ink)}
 .btn.sm{padding:7px 14px;font-size:.85rem}
-.hero{background:linear-gradient(135deg,#0b3a6f,#0b6bcb 70%);color:#fff;padding:64px 0 72px}
+
+/*Color del inicio*/
+.hero{
+    background:linear-gradient(135deg,#0b3a6f,#0b6bcb 70%);
+    color:#fff;
+    padding:70px 0 72px}
+
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .hero h1{font-size:clamp(2rem,5vw,3.3rem);margin:12px 0}
 .hero p{opacity:.9;max-width:520px}
@@ -30,7 +51,7 @@ section.blk{padding:56px 0}
 .track::-webkit-scrollbar{display:none}
 .card{flex:0 0 300px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.2s}
 .card:hover{box-shadow:0 12px 28px #10243a1f;transform:translateY(-3px)}
-.ph{height:170px;background:linear-gradient(135deg,#bcd8f6,#e8f2fd);display:grid;place-items:center;font-size:3.4rem;background-size:cover;background-position:center;position:relative}
+.ph{height:170px;background:linear-gradient(135deg,#bb7c1f,#e8f2fd);display:grid;place-items:center;font-size:3.4rem;background-size:cover;background-position:center;position:relative}
 .tag{position:absolute;top:10px;left:10px;font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:99px;background:#fff}
 .tag.ok{color:var(--green)}.tag.full{color:#d33}
 .cb{padding:14px 16px}.cb h3{font-size:1.05rem}.stars{color:var(--amber);letter-spacing:2px}
@@ -40,14 +61,64 @@ section.blk{padding:56px 0}
 .nav-c{display:flex;gap:8px}
 .nav-c button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:1.1rem;cursor:pointer}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.step,.rev,.box{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px}
-.step b{font-size:2rem;color:var(--blue)}
+.step,.rev,
+
+/*Apartado de ¿Cómo funciona? y Login*/
+.box{
+    background:transparent;
+    border:2px solid var(--line);
+    border-radius:var(--r);
+    padding:30px}
+
+.step b{
+    font-size:2rem;
+    color:var(--blue)}
+    
 .revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-footer{background:var(--ink);color:#b9c8d8;padding:32px 0;margin-top:40px;font-size:.9rem}
+
+/*texto de pie de pagina*/
+footer{background:var(--ink);
+    color:#c6d3e2;
+    padding:32px 0;
+    margin-top:40px;
+    font-size:.9rem}
 .view{display:none}.view.on{display:block}
-.narrow{max-width:460px;margin:48px auto}
+
+/*login*/ 
+.narrow{
+    max-width:460px;
+    margin:48px auto}
+
+
+/* Botones*/
+.btn {
+    font-weight: 700;
+    letter-spacing: .3px;
+} 
+
+/* Botones de iniciar sesión y crear cuenta  */
+.tabs button {
+    font-weight: 700;
+    border-radius: 12px;
+} 
+
+/* Efecto al seleccionar un campo */
+input:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px #0977e5e6;
+}
+
 label{display:block;font-weight:600;font-size:.85rem;margin:12px 0 4px}
-input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}
+
+/*Login de Rentero*/
+input,select,textarea{
+    width:100%;
+    padding:11px 12px;
+    border:1px solid var(--line);
+    border-radius:10px;font:inherit;
+    background:#e9eef4}
+
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .tabs{display:flex;gap:6px;margin-bottom:8px}.tabs button{flex:1}
 .detail{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;margin:28px 0}
@@ -65,3 +136,66 @@ table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{padding:10px 8px
 .dash{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0}
 .scroll{overflow-x:auto}
 .tw{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:99px;display:none;z-index:50}
+
+/*Apartado de: ¿Cómo funciona?*/
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+.step {
+    text-align: center;
+    flex: 1;
+}
+
+/* FORMULARIO DE RESEÑAS */
+.form-resena {
+    max-width: 500px;
+    margin: 35px auto 0;
+    padding: 20px;
+    border: 2px solid var(--line);
+    border-radius: var(--r);
+    background: #b3d4f6;
+}
+
+.form-resena h3 {
+    margin-bottom: 10px;
+}
+
+.form-resena p {
+    margin-bottom: 15px;
+}
+
+.form-resena label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: 600;
+}
+
+.calificar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.estrella {
+    border: none;
+    background: transparent;
+    color: #b9c2cc;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.estrella.activa {
+    color: #f5ce0b;
+}
+
+.form-resena textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    resize: vertical;
+    margin-bottom: 15px;
+}
