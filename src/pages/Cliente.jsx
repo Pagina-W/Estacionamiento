@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+<<<<<<< HEAD
 import { avg, dist, stars } from '../lib/db.js'
 import { useApp } from '../context/AppContext.jsx'
 import { obtenerLugares } from '../services/lugarService.js'
@@ -25,6 +26,23 @@ export default function Cliente() {
   }, [])
 
   let lugares = lista
+=======
+import { DB, avg, dist, stars } from '../lib/db.js'
+import { useApp } from '../context/AppContext.jsx'
+
+export default function Cliente() {
+  const navigate = useNavigate()
+  const { user, toast } = useApp() 
+  const [pos, setPos] = useState(null)
+  const track = useRef(null)
+  const car = useRef(null)
+
+  useEffect(() => { 
+    document.title = 'GoParking | Panel de Cliente' 
+  }, [])
+
+  let lugares = DB.get('lugares', [])
+>>>>>>> origin/main
   if (pos) {
     lugares = lugares
       .map((l) => ({ ...l, d: l.lat ? dist(pos[0], pos[1], l.lat, l.lng) : 1e9 }))
@@ -46,6 +64,7 @@ export default function Cliente() {
 
   return (
     <div className="view on">
+<<<<<<< HEAD
       {/* Barra azul compacta: saludo a la izquierda y botón a la derecha, en una sola fila */}
       <div className="hero" style={{ padding: '8px 0' }}>
         <div
@@ -59,6 +78,13 @@ export default function Cliente() {
             </p>
           </div>
           <button className="btn ghost sm" onClick={cerca}>
+=======
+      <div className="hero" style={{ padding: '24px 0' }}>
+        <div className="wrap">
+          <h2>¡Hola, {user?.nombre || 'Cliente'}!</h2>
+          <p>Explora las cocheras disponibles y reserva tu espacio.</p>
+          <button className="btn ghost" style={{ marginTop: 12 }} onClick={cerca}>
+>>>>>>> origin/main
             Ver lugares cerca de mí
           </button>
         </div>
@@ -77,10 +103,13 @@ export default function Cliente() {
               <button onClick={() => sc(1)}>→</button>
             </div>
           </div>
+<<<<<<< HEAD
 
           {cargando && <p className="sub">Cargando lugares...</p>}
           {!cargando && lugares.length === 0 && <p className="sub">Aún no hay estacionamientos registrados.</p>}
 
+=======
+>>>>>>> origin/main
           <div className="car" ref={car}>
             <div className="track" ref={track}>
               {lugares.map((l) => (
@@ -95,7 +124,11 @@ export default function Cliente() {
                     <div className="stars">{stars(avg(l.id))}</div>
                     <h3>{l.nombre}</h3>
                     <small style={{ color: '#58708a' }}>
+<<<<<<< HEAD
                       {l.dir}
+=======
+                      {l.localidad}, {l.municipio}
+>>>>>>> origin/main
                       {l.d && l.d < 1e8 ? ' · ' + l.d.toFixed(1) + ' km' : ''}
                     </small>
                     <div className="cf">
@@ -109,9 +142,15 @@ export default function Cliente() {
           </div>
         </div>
       </section>
+<<<<<<< HEAD
 
       {/* Chat con IA conectado a tu base de datos */}
       <ChatIA />
     </div>
   )
 }
+=======
+    </div>
+  )
+}
+>>>>>>> origin/main
