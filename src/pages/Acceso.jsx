@@ -1,32 +1,22 @@
 import { useEffect, useState } from 'react'
 import { useApp } from '../context/AppContext.jsx'
-<<<<<<< HEAD
 import { useSearchParams, Link, useNavigate } from 'react-router-dom'
-=======
-import { useSearchParams, Link } from 'react-router-dom'
->>>>>>> origin/main
 import { registrarUsuario, iniciarSesion } from '../services/authService.js'
 
 export default function Acceso() {
   const [params] = useSearchParams()
   const { login, toast } = useApp()
-<<<<<<< HEAD
   const navigate = useNavigate()
-=======
->>>>>>> origin/main
 
   const role = params.get('rol') || 'cliente'
   const esAdmin = role === 'administrador'
 
-<<<<<<< HEAD
   const destino = {
     cliente: '/cliente',
     propietario: '/propietario',
     administrador: '/administrador'
   }
 
-=======
->>>>>>> origin/main
   const [tab, setTab] = useState('log')
   const [cargando, setCargando] = useState(false)
 
@@ -39,14 +29,7 @@ export default function Acceso() {
   })
 
   const set = (k) => (e) =>
-<<<<<<< HEAD
     setF({ ...f, [k]: e.target.value })
-=======
-    setF((anterior) => ({
-      ...anterior,
-      [k]: e.target.value
-    }))
->>>>>>> origin/main
 
   useEffect(() => {
     document.title = 'UbiPark | Acceso'
@@ -86,10 +69,7 @@ export default function Acceso() {
 
         toast('¡Cuenta creada exitosamente!')
         login(usuarioCreado, role)
-<<<<<<< HEAD
         navigate(destino[role] || '/', { replace: true })
-=======
->>>>>>> origin/main
 
       } else {
 
@@ -108,10 +88,7 @@ export default function Acceso() {
 
         toast('¡Bienvenido de nuevo!')
         login(datosSesion, rolReal)
-<<<<<<< HEAD
         navigate(destino[rolReal] || '/', { replace: true })
-=======
->>>>>>> origin/main
       }
 
     } catch (error) {
@@ -185,11 +162,7 @@ export default function Acceso() {
                   </div>
                 </div>
 
-<<<<<<< HEAD
                 <label>Teléfono / WhatsApp</label>
-=======
-                <label>Teléfono</label>
->>>>>>> origin/main
                 <input
                   type="tel"
                   required
@@ -229,8 +202,4 @@ export default function Acceso() {
       </div>
     </div>
   )
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/main
