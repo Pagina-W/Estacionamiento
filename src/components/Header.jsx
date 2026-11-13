@@ -8,8 +8,6 @@ export default function Header() {
   return (
     <header>
       <div className="wrap">
-
-        {/* Logo y nombre */}
         <div
           className="logo"
           onClick={() => navigate('/')}
