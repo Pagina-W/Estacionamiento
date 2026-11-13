@@ -1,0 +1,3 @@
+/* GoParking - RESPONSIVO: adapta el diseño a tablet (860px) y celular (520px) */
+@media(max-width:860px){.hero .wrap,.detail,.dash{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.card{flex-basis:260px}.gal .ph{height:220px}.hero{padding:40px 0}}
+@media(max-width:520px){.steps,.g2,.g3{grid-template-columns:1fr}nav .btn.hide-m{display:none}.nav-c{display:none}}
